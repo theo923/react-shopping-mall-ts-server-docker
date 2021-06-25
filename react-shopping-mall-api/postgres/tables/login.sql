@@ -1,0 +1,9 @@
+BEGIN TRANSACTION;
+
+CREATE TABLE login (
+	id serial PRIMARY KEY,
+	username TEXT UNIQUE NOT NULL,
+	hash varchar(100) NOT NULL
+);
+
+COMMIT;

@@ -1,0 +1,10 @@
+BEGIN TRANSACTION;
+
+CREATE TABLE users (
+ 	id serial PRIMARY KEY,
+	username TEXT UNIQUE NOT NULL,
+	joined TIMESTAMP NOT NULL,
+	orders TEXT []
+);
+
+COMMIT;

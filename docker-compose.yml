@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+
+    # Frontend
+    react-shopping-mall:
+        container_name: frontend
+        # image: node:16.3
+        build: ./react-shopping-mall
+        command: npm run start
+        stdin_open: true
+        tty: true
+        environment: 
+            REACT_APP_API_PORT: 3001
+
+        ports:
+            - "3000:3000"
+        
+
+
+    # Backend API
+    react-shopping-mall-api:
+        container_name: backend
+        # image: node:16.3
+        build: ./react-shopping-mall-api
+        command: npm start
+        environment: 
+            POSTGRES_HOST:  postgres
+            POSTGRES_USER:  postgres
+            POSTGRES_PASSWORD:  postgres
+            POSTGRES_DB: postgres
+            REACT_APP_API_PORT: 3001
+        links:
+            - postgres
+        ports:
+            - "3001:3001"
+
+
+    # Postgres
+    postgres: 
+        environment: 
+            POSTGRES_HOST:  postgres
+            POSTGRES_USER:  postgres
+            POSTGRES_PASSWORD:  postgres
+            POSTGRES_DB: postgres
+            REACT_APP_API_PORT: 3001
+        build: ./react-shopping-mall-api/postgres
+        ports:
+            - "5432:5432"
