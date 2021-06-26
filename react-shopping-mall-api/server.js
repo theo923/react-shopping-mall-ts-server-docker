@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt-nodejs')
 const cors = require('cors')
 const knex = require('knex')
 const helmet = require('helmet')
+const morgan = require('morgan')
 
 
 //initialize controller
@@ -19,6 +20,7 @@ const newslist = require('./controller/newslist')
 //initialize backend
 const app = express()
 
+app.use(morgan('combine'))
 app.use(helmet())
 app.use(cors())
 app.use(express.json())
@@ -27,7 +29,7 @@ app.use(express.json())
 const db = knex({
     client: 'pg',
     connection: {
-      host: process.env.POSTGRES_HOST,
+      host: (process.env.REACT_APP_DATABASE_IP_ADDRESS)? process.env.REACT_APP_DATABASE_IP_ADDRESS : process.env.POSTGRES_HOST,
       user: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       db: process.env.POSTGRES_DB
