@@ -32,7 +32,7 @@ class Tracking extends React.Component <IProps, IState> {
     }
 
     private async readTrackApi() {
-        const response = await fetch(`http://localhost:${process.env.REACT_APP_API_PORT}/track`, {
+        const response = await fetch(`http://${(process.env.REACT_APP_API_IP_ADDRESS === '') ? 'localhost' : process.env.REACT_APP_API_IP_ADDRESS }:${process.env.REACT_APP_API_PORT}/track`, {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

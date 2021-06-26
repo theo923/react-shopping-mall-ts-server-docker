@@ -240,7 +240,7 @@ var App = /** @class */ (function (_super) {
             var response, data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, fetch("http://localhost:" + process.env.REACT_APP_API_PORT + "/order", {
+                    case 0: return [4 /*yield*/, fetch("http://" + ((process.env.REACT_APP_API_IP_ADDRESS === '') ? 'localhost' : process.env.REACT_APP_API_IP_ADDRESS) + ":" + process.env.REACT_APP_API_PORT + "/order", {
                             method: 'post',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
@@ -261,7 +261,7 @@ var App = /** @class */ (function (_super) {
             var response, data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, fetch("http://localhost:" + process.env.REACT_APP_API_PORT + "/itemlist", {
+                    case 0: return [4 /*yield*/, fetch("http://" + ((process.env.REACT_APP_API_IP_ADDRESS === '') ? 'localhost' : process.env.REACT_APP_API_IP_ADDRESS) + ":" + process.env.REACT_APP_API_PORT + "/itemlist", {
                             method: 'post',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({

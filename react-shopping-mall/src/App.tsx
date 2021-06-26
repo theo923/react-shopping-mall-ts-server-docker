@@ -133,7 +133,7 @@ class App extends React.Component<IProps, IState> {
   }
 
   private async readOrderApi() {
-    const response = await fetch(`http://localhost:${process.env.REACT_APP_API_PORT}/order`, {
+    const response = await fetch(`http://${(process.env.REACT_APP_API_IP_ADDRESS === '') ? 'localhost' : process.env.REACT_APP_API_IP_ADDRESS }:${process.env.REACT_APP_API_PORT}/order`, {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -159,7 +159,7 @@ class App extends React.Component<IProps, IState> {
   }
 
   private async readItemListApi(e: React.SyntheticEvent<HTMLInputElement>) {
-    const response = await fetch(`http://localhost:${process.env.REACT_APP_API_PORT}/itemlist`, {
+    const response = await fetch(`http://${(process.env.REACT_APP_API_IP_ADDRESS === '') ? 'localhost' : process.env.REACT_APP_API_IP_ADDRESS }:${process.env.REACT_APP_API_PORT}/itemlist`, {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

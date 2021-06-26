@@ -84,7 +84,7 @@ var Login = /** @class */ (function (_super) {
             var response, data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, fetch("http://localhost:" + process.env.REACT_APP_API_PORT + "/signin", {
+                    case 0: return [4 /*yield*/, fetch("http://" + ((process.env.REACT_APP_API_IP_ADDRESS === '') ? 'localhost' : process.env.REACT_APP_API_IP_ADDRESS) + ":" + process.env.REACT_APP_API_PORT + "/signin", {
                             method: 'post',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({

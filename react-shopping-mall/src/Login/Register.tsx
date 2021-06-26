@@ -28,7 +28,7 @@ class Register extends React.Component <IProps, IState>  {
     }
 
     private async readRegisterApi<T>() : Promise<T> {
-        const response = await fetch(`http://localhost:${process.env.REACT_APP_API_PORT}/register`, {
+        const response = await fetch(`http://${(process.env.REACT_APP_API_IP_ADDRESS === '') ? 'localhost' : process.env.REACT_APP_API_IP_ADDRESS }:${process.env.REACT_APP_API_PORT}/register`, {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

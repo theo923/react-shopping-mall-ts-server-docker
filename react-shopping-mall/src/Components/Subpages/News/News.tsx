@@ -23,7 +23,7 @@ class News extends React.Component <IProps, IState> {
     }
 
     private async readNewsListApi<T>() : Promise<T> {
-        const response = await fetch(`http://localhost:${process.env.REACT_APP_API_PORT}/newslist`, {
+        const response = await fetch(`http://${(process.env.REACT_APP_API_IP_ADDRESS === '') ? 'localhost' : process.env.REACT_APP_API_IP_ADDRESS }:${process.env.REACT_APP_API_PORT}/newslist`, {
             method: 'post',
             headers: {'Content-Type': 'applicaiton/json'},
             body: JSON.stringify({
